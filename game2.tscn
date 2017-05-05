@@ -1,0 +1,916 @@
+[gd_scene load_steps=35 format=1]
+
+[ext_resource path="res://titleset2.tres" type="TileSet" id=1]
+[ext_resource path="res://player.gd" type="Script" id=2]
+[ext_resource path="res://Sprite-0002.tex" type="Texture" id=3]
+[ext_resource path="res://123.tex" type="Texture" id=4]
+[ext_resource path="res://moeda.tscn" type="PackedScene" id=5]
+[ext_resource path="res://inimigo01.tscn" type="PackedScene" id=6]
+[ext_resource path="res://plataforma_terra.tscn" type="PackedScene" id=7]
+[ext_resource path="res://titles.tex" type="Texture" id=8]
+[ext_resource path="res://bloco_quebravel.gd" type="Script" id=9]
+[ext_resource path="res://fim.tex" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6.7662, 7.77801 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.70587, 1.17647 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1.17647, 5.88235 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1.17647, 7.05882 )
+
+[sub_resource type="Animation" id=5]
+
+resource/name = "falling"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "jumping"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=8]
+
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=9]
+
+resource/name = "caiu"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 1.1, 0.5 ), Vector2( 0.8, 0.8 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+
+resource/name = "pulou"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 0.8, 0.8 ), Vector2( 0.7, 0.8 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7.42097, 0.889511 )
+
+[sub_resource type="Animation" id=12]
+
+resource/name = "andando2"
+length = 6.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 37, 88 ), Vector2( -8, 88 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:transform/scale")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+
+resource/name = "andando"
+length = 6.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 300, 56 ), Vector2( 242, 56 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:transform/scale")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+
+resource/name = "andando3"
+length = 6.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1023, 152 ), Vector2( 958, 152 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:transform/scale")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 3 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+
+resource/name = "Nova Animação"
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1143, -42 ), Vector2( 1294, -42 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+
+resource/name = "default"
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 680, 56 ), Vector2( 791, 56 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+
+resource/name = "default"
+length = 2.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 840, 167 ), Vector2( 840, 56 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=18]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 7 )
+
+[sub_resource type="RectangleShape2D" id=19]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=20]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1, 19 )
+
+[sub_resource type="ConvexPolygonShape2D" id=21]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -1988, -378, -1988, -474, -1816, -467, -676, -374 )
+
+[sub_resource type="ConvexPolygonShape2D" id=22]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -676, -374, -1816, -467, -578, -472 )
+
+[sub_resource type="ConvexPolygonShape2D" id=23]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -676, -374, -578, -472, -430, 149, -543, 225 )
+
+[sub_resource type="ConvexPolygonShape2D" id=24]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 312, 225, -543, 225, -430, 149, 314, 147 )
+
+[node name="Node" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 2
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -524194, 4, -524193, 5, -524192, 6, -458658, 7, -458657, 8, -458656, 9, -393122, 7, -393121, 8, -393120, 9, -327586, 7, -327585, 8, -327584, 9, -262054, 13, -262050, 7, -262049, 8, -262048, 9, -196524, 4, -196523, 5, -196522, 5, -196521, 5, -196520, 5, -196519, 5, -196518, 5, -196517, 6, -196514, 7, -196513, 8, -196512, 9, -131054, 47, -130988, 7, -130987, 8, -130986, 8, -130985, 8, -130984, 8, -130983, 8, -130982, 8, -130981, 9, -130978, 7, -130977, 8, -130976, 9, -65470, 14, -65452, 7, -65451, 8, -65450, 8, -65449, 8, -65448, 8, -65447, 8, -65446, 8, -65445, 9, -65442, 7, -65441, 8, -65440, 9, 84, 7, 85, 8, 86, 8, 87, 8, 88, 8, 89, 8, 90, 8, 91, 9, 94, 7, 95, 8, 96, 9, 65551, 47, 65557, 47, 65620, 7, 65621, 8, 65622, 8, 65623, 8, 65624, 8, 65625, 8, 65626, 8, 65627, 9, 65630, 7, 65631, 8, 65632, 9, 131089, 36, 131090, 41, 131091, 36, 131142, 14, 131156, 7, 131157, 8, 131158, 8, 131159, 8, 131160, 8, 131161, 8, 131162, 8, 131163, 9, 131166, 7, 131167, 8, 131168, 9, 196625, 37, 196626, 40, 196627, 37, 196644, 56, 196645, 57, 196646, 57, 196647, 57, 196648, 58, 196692, 7, 196693, 8, 196694, 8, 196695, 8, 196696, 8, 196697, 8, 196698, 8, 196699, 9, 196702, 7, 196703, 8, 196704, 9, 262148, 44, 262149, 45, 262150, 45, 262151, 46, 262152, 3, 262153, 3, 262154, 3, 262155, 3, 262156, 44, 262157, 45, 262158, 45, 262159, 45, 262160, 45, 262161, 45, 262162, 45, 262163, 45, 262164, 45, 262165, 45, 262166, 45, 262167, 46, 262180, 52, 262181, 53, 262182, 53, 262183, 53, 262184, 54, 262228, 7, 262229, 8, 262230, 8, 262231, 8, 262232, 8, 262233, 8, 262234, 8, 262235, 9, 262238, 7, 262239, 8, 262240, 9, 327705, 44, 327706, 46, 327716, 52, 327717, 53, 327718, 53, 327719, 53, 327720, 54, 327748, 14, 327764, 10, 327765, 11, 327766, 11, 327767, 11, 327768, 11, 327769, 11, 327770, 11, 327771, 12, 327774, 7, 327775, 8, 327776, 9, 458750, 44, 458751, 45, 393216, 45, 393217, 45, 393218, 46, 393252, 52, 393253, 53, 393254, 53, 393255, 53, 393256, 54, 393310, 7, 393311, 8, 393312, 9, 458780, 44, 458781, 45, 458782, 45, 458783, 45, 458784, 45, 458785, 45, 458786, 45, 458787, 45, 458788, 48, 458789, 49, 458790, 49, 458791, 49, 458792, 50, 458809, 15, 458819, 13, 458846, 7, 458847, 8, 458848, 9, 524354, 0, 524355, 1, 524356, 1, 524357, 1, 524358, 2, 524382, 7, 524383, 8, 524384, 9, 589886, 13, 589918, 7, 589919, 8, 589920, 9, 655416, 0, 655417, 1, 655418, 1, 655419, 1, 655420, 1, 655421, 1, 655422, 1, 655423, 1, 655424, 2, 655454, 7, 655455, 8, 655456, 9, 720990, 10, 720991, 11, 720992, 12, 2818140, 15, 2949215, 13, 2949227, 13, 3014748, 0, 3014749, 1, 3014750, 1, 3014751, 2, 3014752, 3, 3014753, 3, 3014754, 3, 3014755, 3, 3014756, 3, 3014757, 3, 3014758, 3, 3014759, 3, 3014760, 3, 3014761, 0, 3014762, 1, 3014763, 1, 3014764, 1, 3014765, 1, 3014766, 2 )
+
+[node name="player" type="KinematicBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 76, 33 )
+transform/scale = Vector2( 0.85, 0.85 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.33014, 0, 0, 1.47879, 0.0721741, 0.366211 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 2
+collision/margin = 0.01
+script/script = ExtResource( 2 )
+
+[node name="cabeca" type="Area2D" parent="player"]
+
+editor/display_folded = true
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.683807, -11.089 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 0 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 0
+collision/mask = 16
+
+[node name="shade" type="CollisionShape2D" parent="player/cabeca"]
+
+transform/pos = Vector2( 0.683807, -11.089 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="esquerda" type="Area2D" parent="player"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -8.23529, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 4
+collision/mask = 4
+
+[node name="shape" type="CollisionShape2D" parent="player/esquerda"]
+
+transform/pos = Vector2( -8.23529, 0 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="direita" type="Area2D" parent="player"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 8.23529, 1.17647 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 4
+collision/mask = 4
+
+[node name="shape" type="CollisionShape2D" parent="player/direita"]
+
+transform/pos = Vector2( 8.23529, 1.17647 )
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+
+transform/pos = Vector2( -1.85043, 0.514397 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 0.7, 0.7 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = true
+smoothing/speed = 55.0
+drag_margin/left = 0.0
+drag_margin/top = 0.0
+drag_margin/right = 0.0
+drag_margin/bottom = 0.0
+
+[node name="sprite" type="Sprite" parent="player"]
+
+transform/pos = Vector2( 0.104233, 10.9605 )
+transform/scale = Vector2( 0.7, 0.8 )
+texture = ExtResource( 3 )
+offset = Vector2( -0.130291, -13.7006 )
+vframes = 2
+hframes = 3
+
+[node name="shape" type="CollisionShape2D" parent="player"]
+
+transform/pos = Vector2( 0.0721741, 0.366211 )
+transform/scale = Vector2( 1.33014, 1.47879 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="anim" type="AnimationPlayer" parent="player"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/falling = SubResource( 5 )
+anims/jumping = SubResource( 6 )
+anims/stopped = SubResource( 7 )
+anims/walking = SubResource( 8 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="animFX" type="AnimationPlayer" parent="player"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/caiu = SubResource( 9 )
+anims/pulou = SubResource( 10 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="rayChao" type="RayCast2D" parent="player"]
+
+transform/pos = Vector2( -7.21706, 11.7294 )
+transform/rot = -28.7468
+transform/scale = Vector2( 0.5, 0.5 )
+enabled = true
+cast_to = Vector2( 0, 3 )
+layer_mask = 2
+type_mask = 15
+
+[node name="rayChao1" type="RayCast2D" parent="player"]
+
+transform/pos = Vector2( 7.38799, 11.7498 )
+transform/rot = 26.5877
+transform/scale = Vector2( 0.5, 0.5 )
+enabled = true
+cast_to = Vector2( 0, 3 )
+layer_mask = 2
+type_mask = 15
+
+[node name="rayChao2" type="RayCast2D" parent="player"]
+
+transform/pos = Vector2( -0.600479, 11.9124 )
+transform/rot = 1.27289
+transform/scale = Vector2( 0.5, 0.5 )
+enabled = true
+cast_to = Vector2( 0, 3 )
+layer_mask = 2
+type_mask = 15
+
+[node name="pes" type="Area2D" parent="player"]
+
+editor/display_folded = true
+input/pickable = true
+shapes/0/shape = SubResource( 11 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.0999146, 12.1573 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 4
+collision/mask = 4
+
+[node name="shape" type="CollisionShape2D" parent="player/pes"]
+
+transform/pos = Vector2( -0.0999146, 12.1573 )
+shape = SubResource( 11 )
+trigger = false
+_update_shape_index = 0
+
+[node name="empurraD" type="RayCast2D" parent="player"]
+
+transform/pos = Vector2( 8.58124, -0.425652 )
+enabled = false
+cast_to = Vector2( 2, 0 )
+layer_mask = 8
+type_mask = 15
+
+[node name="empurraE" type="RayCast2D" parent="player"]
+
+transform/pos = Vector2( -8.54588, -0.425652 )
+enabled = false
+cast_to = Vector2( -2, 0 )
+layer_mask = 8
+type_mask = 15
+
+[node name="TileMap 2" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -393130, 15 )
+
+[node name="paralax" type="ParallaxBackground" parent="."]
+
+layer = -1
+offset = Vector2( 0, -60 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll/offset = Vector2( 0, 0 )
+scroll/base_offset = Vector2( 0, 0 )
+scroll/base_scale = Vector2( 1, 1 )
+scroll/limit_begin = Vector2( 0, 0 )
+scroll/limit_end = Vector2( 0, 0 )
+scroll/ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="paralax"]
+
+motion/scale = Vector2( 0.5, 0 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 640, 0 )
+
+[node name="bg01" type="Sprite" parent="paralax/ParallaxLayer"]
+
+transform/scale = Vector2( 1.25, 1.5 )
+texture = ExtResource( 4 )
+centered = false
+region = true
+region_rect = Rect2( 6, 2, 256, 224 )
+
+[node name="bg2" type="Sprite" parent="paralax/ParallaxLayer"]
+
+transform/pos = Vector2( 320, 0 )
+transform/scale = Vector2( 1.25, 1.5 )
+texture = ExtResource( 4 )
+centered = false
+region = true
+region_rect = Rect2( 6, 2, 256, 224 )
+
+[node name="moedas" type="Node" parent="."]
+
+editor/display_folded = true
+
+[node name="moeda" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 101.59, 50.7948 )
+
+[node name="moeda5" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 247.975, -17.5938 )
+
+[node name="moeda6" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 343.455, -17.5938 )
+
+[node name="moeda7" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 296.445, -69.2758 )
+
+[node name="moeda2" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( -9.30482, 79.8044 )
+
+[node name="moeda3" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 600.082, 32.6428 )
+
+[node name="moeda4" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 634.805, 32.6428 )
+
+[node name="moeda8" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 945.885, 143.308 )
+
+[node name="moeda9" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 967.492, 143.308 )
+
+[node name="moeda10" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 990.559, 143.308 )
+
+[node name="moeda11" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1096.04, 66.3512 )
+
+[node name="moeda12" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1127.74, 18.0714 )
+
+[node name="moeda13" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1063.79, -30.3888 )
+
+[node name="moeda14" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1373, -64 )
+
+[node name="moeda15" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1408, -64 )
+
+[node name="moeda16" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1441, -64 )
+
+[node name="moeda17" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1568, 722 )
+
+[node name="moeda18" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1593, 722 )
+
+[node name="moeda19" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1620, 722 )
+
+[node name="moeda20" parent="moedas" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 1648, 722 )
+
+[node name="inimigos" type="Node" parent="."]
+
+editor/display_folded = true
+
+[node name="inimigo01" parent="inimigos" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 37, 88 )
+
+[node name="anim 2" type="AnimationPlayer" parent="inimigos/inimigo01"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/andando2 = SubResource( 12 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "andando2"
+
+[node name="inimigo2" parent="inimigos" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 300, 56 )
+
+[node name="anim3" type="AnimationPlayer" parent="inimigos/inimigo2"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/andando = SubResource( 13 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "andando"
+
+[node name="inimigo3" parent="inimigos" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 1023, 152 )
+
+[node name="anim 2" type="AnimationPlayer" parent="inimigos/inimigo3"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/andando3 = SubResource( 14 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "andando3"
+
+[node name="plataformas" type="Node" parent="."]
+
+editor/display_folded = true
+
+[node name="plataforma_terra1" parent="plataformas" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 1294, -42 )
+
+[node name="anim" type="AnimationPlayer" parent="plataformas/plataforma_terra1"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+"anims/Nova Animação" = SubResource( 15 )
+playback/active = true
+playback/speed = 0.3
+blend_times = [  ]
+autoplay = "Nova Animação"
+
+[node name="plataforma_terra" parent="plataformas" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 680, 56 )
+
+[node name="anim" type="AnimationPlayer" parent="plataformas/plataforma_terra"]
+
+playback/process_mode = 0
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/default = SubResource( 16 )
+playback/active = true
+playback/speed = 0.3
+blend_times = [  ]
+autoplay = "default"
+
+[node name="plataforma_terra 2" parent="plataformas" instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 840, 56 )
+
+[node name="anim" type="AnimationPlayer" parent="plataformas/plataforma_terra 2"]
+
+playback/process_mode = 0
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/default = SubResource( 17 )
+playback/active = true
+playback/speed = 0.3
+blend_times = [  ]
+autoplay = "default"
+
+[node name="bloco" type="KinematicBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 488, 104 )
+input/pickable = false
+shapes/0/shape = SubResource( 18 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -1 )
+shapes/0/trigger = false
+collision/layers = 11
+collision/mask = 1
+collision/margin = 0.01
+
+[node name="sprite" type="Sprite" parent="bloco"]
+
+texture = ExtResource( 8 )
+region = true
+region_rect = Rect2( 144, 144, 16, 16 )
+
+[node name="shape" type="CollisionShape2D" parent="bloco"]
+
+transform/pos = Vector2( 0, -1 )
+shape = SubResource( 18 )
+trigger = false
+_update_shape_index = 0
+
+[node name="bloco_quebravel" type="KinematicBody2D" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+transform/pos = Vector2( 204, 24 )
+input/pickable = false
+shapes/0/shape = SubResource( 19 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 8, 0 )
+shapes/0/trigger = false
+collision/layers = 18
+collision/mask = 0
+collision/margin = 0.08
+script/script = ExtResource( 9 )
+
+[node name="sprite" type="Sprite" parent="bloco_quebravel"]
+
+transform/pos = Vector2( 0, -8 )
+texture = ExtResource( 8 )
+centered = false
+region = true
+region_rect = Rect2( 32, 112, 16, 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bloco_quebravel"]
+
+transform/pos = Vector2( 8, 0 )
+shape = SubResource( 19 )
+trigger = false
+_update_shape_index = 0
+
+[node name="bloco_quebravel1" type="KinematicBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 560, 56 )
+input/pickable = false
+shapes/0/shape = SubResource( 19 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 8, 0 )
+shapes/0/trigger = false
+collision/layers = 18
+collision/mask = 0
+collision/margin = 0.08
+script/script = ExtResource( 9 )
+
+[node name="sprite" type="Sprite" parent="bloco_quebravel1"]
+
+transform/pos = Vector2( 0, -8 )
+texture = ExtResource( 8 )
+centered = false
+region = true
+region_rect = Rect2( 32, 112, 16, 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bloco_quebravel1"]
+
+transform/pos = Vector2( 8, 0 )
+shape = SubResource( 19 )
+trigger = false
+_update_shape_index = 0
+
+[node name="fim_jogo" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 1763, 717 )
+input/pickable = true
+shapes/0/shape = SubResource( 20 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -2, 1 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 0
+
+[node name="sprite" type="Sprite" parent="fim_jogo"]
+
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="shape" type="CollisionShape2D" parent="fim_jogo"]
+
+transform/pos = Vector2( -2, 1 )
+shape = SubResource( 20 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 1763, 717 )
+input/pickable = true
+shapes/0/shape = SubResource( 21 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 22 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 23 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 24 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/3/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+
+build_mode = 0
+polygon = Vector2Array( -1816, -467, -578, -472, -430, 149, 314, 147, 312, 225, -543, 225, -676, -374, -1988, -378, -1988, -474 )
+shape_range = Vector2( 0, 3 )
+trigger = false
+
+[connection signal="body_enter" from="player/cabeca" to="player" method="_on_cabeca_body_enter"]
+
+[connection signal="body_enter" from="player/esquerda" to="player" method="_on_esquerda_body_enter"]
+
+[connection signal="body_enter" from="player/direita" to="player" method="_on_direita_body_enter"]
+
+[connection signal="body_enter" from="player/pes" to="player" method="_on_pes_body_enter"]
+
+[connection signal="body_enter" from="fim_jogo" to="player" method="_on_Area2D_body_enter"]
+
+[connection signal="body_enter" from="Area2D" to="player" method="_on_Area2D_body_enter"]
+
+

@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://inimigo.gd" type="Script" id=1]
+[ext_resource path="res://titles.tex" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 6.05194
+height = 2.43137
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "morre"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 0, 128, 16, 16 ), Rect2( 16, 128, 16, 16 ), Rect2( 32, 128, 16, 16 ), Rect2( 48, 128, 16, 16 ), Rect2( 64, 128, 16, 16 ), Rect2( 80, 128, 16, 16 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "walking"
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 1,
+"values": [ Rect2( 144, 48, 16, 16 ), Rect2( 160, 48, 16, 16 ) ]
+}
+
+[node name="inimigo01" type="KinematicBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 1.25609 )
+shapes/0/trigger = false
+collision/layers = 4
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+vida = 1
+
+[node name="sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 144, 48, 16, 16 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/morre = SubResource( 2 )
+anims/walking = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = "walking"
+
+[node name="shape" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( 0, 1.25609 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+
