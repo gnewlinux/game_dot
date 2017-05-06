@@ -1,23 +1,24 @@
-[gd_scene load_steps=22 format=1]
+[gd_scene load_steps=23 format=1]
 
-[ext_resource path="res://titles.tex" type="Texture" id=1]
-[ext_resource path="res://titleset2.tres" type="TileSet" id=2]
-[ext_resource path="res://player.gd" type="Script" id=3]
-[ext_resource path="res://Sprite-0002.tex" type="Texture" id=4]
+[ext_resource path="res://passagem.gd" type="Script" id=1]
+[ext_resource path="res://titles.tex" type="Texture" id=2]
+[ext_resource path="res://titleset2.tres" type="TileSet" id=3]
+[ext_resource path="res://player.gd" type="Script" id=4]
+[ext_resource path="res://Sprite-0002.tex" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 2.93689, 10 )
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=2]
 
 resource/name = "caindo"
 length = 1.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:transform/pos")
+tracks/0/path = NodePath("KinematicBody2D/Sprite:transform/pos")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
@@ -27,7 +28,7 @@ tracks/0/keys = {
 "values": [ Vector2( 360, 24 ), Vector2( 360, 56 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite1:transform/pos")
+tracks/1/path = NodePath("KinematicBody2D/Sprite1:transform/pos")
 tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = {
@@ -36,30 +37,49 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 360, 24 ), Vector2( 360, 24 ), Vector2( 360, 40 ) ]
 }
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 6.7662, 7.77801 )
-
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 4.70587, 1.17647 )
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:transform/pos")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 4, 1 ),
+"update": 0,
+"values": [ Vector2( 360, 24 ), Vector2( 360, 56.1188 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite1:transform/pos")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 0.5, 1 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 360, 24 ), Vector2( 360, 24 ), Vector2( 360, 40.1084 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 1.17647, 5.88235 )
+extents = Vector2( 6.7662, 7.77801 )
 
 [sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
+extents = Vector2( 4.70587, 1.17647 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1.17647, 5.88235 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
 extents = Vector2( 1.17647, 7.05882 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 
-resource/name = "falling"
 length = 1.0
 loop = false
 step = 0.1
@@ -74,9 +94,8 @@ tracks/0/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=8]
 
-resource/name = "jumping"
 length = 1.0
 loop = false
 step = 0.1
@@ -91,7 +110,7 @@ tracks/0/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 
 length = 1.0
 loop = false
@@ -107,7 +126,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=10]
 
 length = 0.4
 loop = true
@@ -123,9 +142,8 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=11]
 
-resource/name = "caiu"
 length = 1.0
 loop = false
 step = 0.1
@@ -140,9 +158,8 @@ tracks/0/keys = {
 "values": [ Vector2( 1.1, 0.5 ), Vector2( 0.8, 0.8 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=12]
 
-resource/name = "pulou"
 length = 1.0
 loop = false
 step = 0.1
@@ -157,72 +174,72 @@ tracks/0/keys = {
 "values": [ Vector2( 0.8, 0.8 ), Vector2( 0.7, 0.8 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=13]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8.33521, 0.889511 )
 
-[sub_resource type="ConvexPolygonShape2D" id=15]
+[sub_resource type="ConvexPolygonShape2D" id=14]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -1988, -378, -1988, -474, -1816, -467, -676, -374 )
 
-[sub_resource type="ConvexPolygonShape2D" id=16]
+[sub_resource type="ConvexPolygonShape2D" id=15]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -676, -374, -1816, -467, -578, -472 )
 
-[sub_resource type="ConvexPolygonShape2D" id=17]
+[sub_resource type="ConvexPolygonShape2D" id=16]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -676, -374, -578, -472, -430, 149, -543, 225 )
 
-[sub_resource type="ConvexPolygonShape2D" id=18]
+[sub_resource type="ConvexPolygonShape2D" id=17]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 312, 225, -543, 225, -430, 149, 314, 147 )
 
 [node name="Node" type="Node"]
 
-[node name="passagem" type="Area2D" parent="."]
+[node name="passagem" type="KinematicBody2D" parent="."]
 
-input/pickable = true
-shapes/0/shape = SubResource( 19 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 2.68937, 419.127, 37.0717 )
 shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="shape" type="CollisionShape2D" parent="passagem"]
-
-transform/pos = Vector2( 419.127, 37.0717 )
-transform/scale = Vector2( 1, 2.68937 )
-shape = SubResource( 19 )
-trigger = false
-_update_shape_index = 0
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="passagem"]
 
-transform/pos = Vector2( 360, 56 )
-texture = ExtResource( 1 )
+transform/pos = Vector2( 360, 56.1188 )
+texture = ExtResource( 2 )
 region = true
 region_rect = Rect2( 144, 128, 16, 16 )
 
 [node name="Sprite1" type="Sprite" parent="passagem"]
 
-transform/pos = Vector2( 360, 40 )
-texture = ExtResource( 1 )
+transform/pos = Vector2( 360, 40.1084 )
+texture = ExtResource( 2 )
 region = true
 region_rect = Rect2( 144, 128, 16, 16 )
 
-[node name="anim" type="AnimationPlayer" parent="passagem"]
+[node name="shape" type="CollisionShape2D" parent="passagem"]
+
+transform/pos = Vector2( 419.127, 37.0717 )
+transform/scale = Vector2( 1, 2.68937 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="anim5" type="AnimationPlayer" parent="passagem"]
 
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/caindo = SubResource( 20 )
+anims/caindo = SubResource( 2 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -231,7 +248,7 @@ autoplay = ""
 [node name="TileMap" type="TileMap" parent="."]
 
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -248,23 +265,22 @@ tile_data = IntArray( -458717, 7, -458716, 8, -458715, 8, -458714, 8, -458713, 8
 
 [node name="player" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 302.322, 46.7709 )
 transform/scale = Vector2( 0.85, 0.85 )
 input/pickable = false
-shapes/0/shape = SubResource( 1 )
+shapes/0/shape = SubResource( 3 )
 shapes/0/transform = Matrix32( 1.33014, 0, 0, 1.47879, 0.0721741, 0.366211 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 2
 collision/margin = 0.01
-script/script = ExtResource( 3 )
+script/script = ExtResource( 4 )
 
 [node name="cabeca" type="Area2D" parent="player"]
 
 editor/display_folded = true
 input/pickable = true
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 4 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.683807, -11.089 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 0 )
@@ -277,7 +293,7 @@ collision/mask = 16
 [node name="shade" type="CollisionShape2D" parent="player/cabeca"]
 
 transform/pos = Vector2( 0.683807, -11.089 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 trigger = false
 _update_shape_index = 0
 
@@ -285,7 +301,7 @@ _update_shape_index = 0
 
 editor/display_folded = true
 input/pickable = true
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 5 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -8.23529, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -298,7 +314,7 @@ collision/mask = 4
 [node name="shape" type="CollisionShape2D" parent="player/esquerda"]
 
 transform/pos = Vector2( -8.23529, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 trigger = false
 _update_shape_index = 0
 
@@ -306,7 +322,7 @@ _update_shape_index = 0
 
 editor/display_folded = true
 input/pickable = true
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 6 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 8.23529, 1.17647 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -319,7 +335,7 @@ collision/mask = 4
 [node name="shape" type="CollisionShape2D" parent="player/direita"]
 
 transform/pos = Vector2( 8.23529, 1.17647 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 trigger = false
 _update_shape_index = 0
 
@@ -347,7 +363,7 @@ drag_margin/bottom = 0.0
 
 transform/pos = Vector2( 0.104233, 10.9605 )
 transform/scale = Vector2( 0.7, 0.8 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 offset = Vector2( -0.130291, -13.7006 )
 vframes = 2
 hframes = 3
@@ -356,7 +372,7 @@ hframes = 3
 
 transform/pos = Vector2( 0.0721741, 0.366211 )
 transform/scale = Vector2( 1.33014, 1.47879 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 trigger = false
 _update_shape_index = 0
 
@@ -365,10 +381,10 @@ _update_shape_index = 0
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/falling = SubResource( 5 )
-anims/jumping = SubResource( 6 )
-anims/stopped = SubResource( 7 )
-anims/walking = SubResource( 8 )
+anims/falling = SubResource( 7 )
+anims/jumping = SubResource( 8 )
+anims/stopped = SubResource( 9 )
+anims/walking = SubResource( 10 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -379,8 +395,8 @@ autoplay = ""
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/caiu = SubResource( 9 )
-anims/pulou = SubResource( 10 )
+anims/caiu = SubResource( 11 )
+anims/pulou = SubResource( 12 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -419,7 +435,7 @@ type_mask = 15
 [node name="pes" type="Area2D" parent="player"]
 
 input/pickable = true
-shapes/0/shape = SubResource( 11 )
+shapes/0/shape = SubResource( 13 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.0999146, 12.1573 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -432,7 +448,7 @@ collision/mask = 4
 [node name="shape" type="CollisionShape2D" parent="player/pes"]
 
 transform/pos = Vector2( -0.0999146, 12.1573 )
-shape = SubResource( 11 )
+shape = SubResource( 13 )
 trigger = false
 _update_shape_index = 0
 
@@ -455,7 +471,7 @@ type_mask = 15
 [node name="TileMap 2" type="TileMap" parent="."]
 
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -492,7 +508,7 @@ motion/mirroring = Vector2( 400, 0 )
 [node name="bg01" type="Sprite" parent="paralax/ParallaxLayer"]
 
 transform/scale = Vector2( 1.25, 1.5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 centered = false
 region = true
 region_rect = Rect2( 0, 176, 160, 128 )
@@ -501,7 +517,7 @@ region_rect = Rect2( 0, 176, 160, 128 )
 
 transform/pos = Vector2( 200, 0 )
 transform/scale = Vector2( 1.25, 1.5 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 centered = false
 region = true
 region_rect = Rect2( 0, 176, 160, 128 )
@@ -511,16 +527,16 @@ region_rect = Rect2( 0, 176, 160, 128 )
 visibility/visible = false
 transform/pos = Vector2( 1763, 717 )
 input/pickable = true
-shapes/0/shape = SubResource( 15 )
+shapes/0/shape = SubResource( 14 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-shapes/1/shape = SubResource( 16 )
+shapes/1/shape = SubResource( 15 )
 shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/1/trigger = false
-shapes/2/shape = SubResource( 17 )
+shapes/2/shape = SubResource( 16 )
 shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/2/trigger = false
-shapes/3/shape = SubResource( 18 )
+shapes/3/shape = SubResource( 17 )
 shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/3/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -535,7 +551,15 @@ polygon = Vector2Array( -1816, -467, -578, -472, -430, 149, 314, 147, 312, 225, 
 shape_range = Vector2( 0, 3 )
 trigger = false
 
-[connection signal="body_enter" from="passagem" to="player" method="_on_passagem_body_enter"]
+[node name="Area2D 2" type="Area2D" parent="."]
+
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[connection signal="body_enter" from="player/cabeca" to="passagem" method="_on_cabeca_body_enter"]
 
 [connection signal="body_enter" from="player/cabeca" to="player" method="_on_cabeca_body_enter"]
 

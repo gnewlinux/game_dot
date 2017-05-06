@@ -209,5 +209,8 @@ func _on_trampulin_body_enter( body ):
 	pula_alto()
 	pass # replace with function body
 
+
 func _on_passagem_body_enter( body ):
+	body.has_method("cair")
+	body.cair()
 	pass # replace with function body
