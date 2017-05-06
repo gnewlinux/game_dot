@@ -10,9 +10,11 @@ func dano(qtde):
 	if !vivo:
 		return
 	vida -= qtde
+	print (vida)
 	if vida <= 0:
 		vivo = false
 		get_node("shape").queue_free()
+		get_node("anima_andando").stop()
 		get_node("anim").play("morre")
 		yield(get_node("anim"), "finished")
 		queue_free()

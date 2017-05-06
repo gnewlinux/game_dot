@@ -1,4 +1,3 @@
-
 extends KinematicBody2D
 
 # This is a simple collision demo showing how
@@ -164,12 +163,9 @@ func _fixed_process(delta):
 		else:
 			nova_anim = "falling"
 
-
 	if animacao != nova_anim:
 		get_node("anim").play(nova_anim)
 		animacao = nova_anim
-	
-	#print(chao)
 
 func pula():
 	get_node("animFX").play("pulou")
@@ -178,7 +174,7 @@ func pula():
 	
 func pula_alto():
 	get_node("animFX").play("pulou")
-	velocity.y = -400
+	velocity.y = -300
 	jumping = true
 
 func _ready():
@@ -188,17 +184,14 @@ func _on_pes_body_enter( body ):
 	pula()
 	body.dano(3)
 
-
 func _on_cabeca_body_enter( body ):
 	if body.has_method("destroi"):
 		body.destroi()
-
 
 func _on_Area2D_body_enter( body ):
 	print("Fim de jogo!")
 	get_tree().change_scene("game.tscn")
 	pass # replace with function body
-
 
 func _on_direita_body_enter( body ):
 	print("Tocou Direita")
@@ -206,14 +199,15 @@ func _on_direita_body_enter( body ):
 	get_tree().change_scene("game.tscn")
 	pass # replace with function body
 
-
 func _on_esquerda_body_enter( body ):
 	print("Tocou Esquerda")
 	#get_node("sprite").hide()
 	get_tree().change_scene("game.tscn")
 	pass # replace with function body
 
-
-func _on_Area2D_2_body_enter( body ):
+func _on_trampulin_body_enter( body ):
 	pula_alto()
+	pass # replace with function body
+
+func _on_passagem_body_enter( body ):
 	pass # replace with function body

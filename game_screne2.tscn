@@ -1,0 +1,550 @@
+[gd_scene load_steps=22 format=1]
+
+[ext_resource path="res://titles.tex" type="Texture" id=1]
+[ext_resource path="res://titleset2.tres" type="TileSet" id=2]
+[ext_resource path="res://player.gd" type="Script" id=3]
+[ext_resource path="res://Sprite-0002.tex" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=19]
+
+custom_solver_bias = 0.0
+extents = Vector2( 2.93689, 10 )
+
+[sub_resource type="Animation" id=20]
+
+resource/name = "caindo"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 4, 1 ),
+"update": 0,
+"values": [ Vector2( 360, 24 ), Vector2( 360, 56 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite1:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.5, 1 ),
+"transitions": FloatArray( 1, 4, 1 ),
+"update": 0,
+"values": [ Vector2( 360, 24 ), Vector2( 360, 24 ), Vector2( 360, 40 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6.7662, 7.77801 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 4.70587, 1.17647 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1.17647, 5.88235 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1.17647, 7.05882 )
+
+[sub_resource type="Animation" id=5]
+
+resource/name = "falling"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "jumping"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=7]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0 ),
+"transitions": FloatArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=8]
+
+length = 0.4
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=9]
+
+resource/name = "caiu"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 1.1, 0.5 ), Vector2( 0.8, 0.8 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+
+resource/name = "pulou"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5 ),
+"transitions": FloatArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 0.8, 0.8 ), Vector2( 0.7, 0.8 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8.33521, 0.889511 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -1988, -378, -1988, -474, -1816, -467, -676, -374 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -676, -374, -1816, -467, -578, -472 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -676, -374, -578, -472, -430, 149, -543, 225 )
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 312, 225, -543, 225, -430, 149, 314, 147 )
+
+[node name="Node" type="Node"]
+
+[node name="passagem" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 19 )
+shapes/0/transform = Matrix32( 1, 0, 0, 2.68937, 419.127, 37.0717 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="shape" type="CollisionShape2D" parent="passagem"]
+
+transform/pos = Vector2( 419.127, 37.0717 )
+transform/scale = Vector2( 1, 2.68937 )
+shape = SubResource( 19 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Sprite" type="Sprite" parent="passagem"]
+
+transform/pos = Vector2( 360, 56 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 144, 128, 16, 16 )
+
+[node name="Sprite1" type="Sprite" parent="passagem"]
+
+transform/pos = Vector2( 360, 40 )
+texture = ExtResource( 1 )
+region = true
+region_rect = Rect2( 144, 128, 16, 16 )
+
+[node name="anim" type="AnimationPlayer" parent="passagem"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/caindo = SubResource( 20 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="TileMap" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 2
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( -458717, 7, -458716, 8, -458715, 8, -458714, 8, -458713, 8, -458712, 8, -458711, 8, -458710, 8, -458709, 8, -458708, 8, -458707, 8, -393200, 7, -393199, 8, -393198, 8, -393197, 8, -393196, 8, -393195, 8, -393194, 9, -393181, 7, -393180, 8, -393179, 8, -393178, 8, -393177, 8, -393176, 8, -393175, 8, -393174, 8, -393173, 8, -393172, 8, -393171, 8, -327664, 7, -327663, 8, -327662, 8, -327661, 8, -327660, 8, -327659, 8, -327658, 9, -327645, 7, -327644, 8, -327643, 8, -327642, 8, -327641, 8, -327640, 8, -327639, 8, -327638, 8, -327637, 8, -327636, 8, -327635, 8, -262128, 7, -262127, 8, -262126, 8, -262125, 8, -262124, 8, -262123, 8, -262122, 9, -262109, 7, -262108, 8, -262107, 8, -262106, 8, -262105, 8, -262104, 8, -262103, 8, -262102, 8, -262101, 8, -262100, 8, -262099, 8, -196592, 7, -196591, 8, -196590, 8, -196589, 8, -196588, 8, -196587, 8, -196586, 9, -196573, 7, -196572, 8, -196571, 8, -196570, 8, -196569, 8, -196568, 8, -196567, 8, -196566, 8, -196565, 8, -196564, 8, -196563, 8, -131056, 7, -131055, 8, -131054, 8, -131053, 8, -131052, 8, -131051, 8, -131050, 9, -131037, 7, -131036, 8, -131035, 8, -131034, 8, -131033, 8, -131032, 8, -131031, 8, -131030, 8, -131029, 8, -131028, 8, -131027, 8, -65520, 7, -65519, 8, -65518, 8, -65517, 8, -65516, 8, -65515, 8, -65514, 9, -65501, 7, -65500, 8, -65499, 8, -65498, 8, -65497, 8, -65496, 8, -65495, 8, -65494, 8, -65493, 8, -65492, 8, -65491, 8, 16, 7, 17, 8, 18, 8, 19, 8, 20, 8, 21, 8, 22, 9, 35, 7, 36, 8, 37, 8, 38, 8, 39, 8, 40, 8, 41, 8, 42, 8, 43, 8, 44, 8, 45, 8, 65552, 10, 65553, 11, 65554, 11, 65555, 11, 65556, 11, 65557, 11, 65558, 12, 65571, 7, 65572, 8, 65573, 8, 65574, 8, 65575, 8, 65576, 8, 65577, 8, 65578, 8, 65579, 8, 65580, 8, 65581, 8, 131107, 7, 131108, 8, 131109, 8, 131110, 8, 131111, 8, 131112, 8, 131113, 8, 131114, 8, 131115, 8, 131116, 8, 131117, 8, 196643, 7, 196644, 8, 196645, 8, 196646, 8, 196647, 8, 196648, 8, 196649, 8, 196650, 8, 196651, 8, 196652, 8, 196653, 8, 262147, 0, 262148, 1, 262149, 1, 262150, 1, 262151, 1, 262152, 1, 262153, 1, 262154, 1, 262155, 1, 262156, 1, 262157, 1, 262158, 1, 262159, 1, 262160, 1, 262161, 1, 262162, 1, 262163, 1, 262164, 1, 262165, 1, 262166, 1, 262167, 1, 262168, 1, 262169, 1, 262170, 1, 262171, 1, 262172, 1, 262173, 1, 262174, 1, 262175, 1, 262176, 1, 262177, 1, 262178, 1, 262179, 1, 262180, 1, 262181, 1, 262182, 1, 262183, 1, 262184, 1, 262185, 1, 262186, 1, 262187, 1, 262188, 1, 262189, 1 )
+
+[node name="player" type="KinematicBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 302.322, 46.7709 )
+transform/scale = Vector2( 0.85, 0.85 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.33014, 0, 0, 1.47879, 0.0721741, 0.366211 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 2
+collision/margin = 0.01
+script/script = ExtResource( 3 )
+
+[node name="cabeca" type="Area2D" parent="player"]
+
+editor/display_folded = true
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.683807, -11.089 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 0 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 0
+collision/mask = 16
+
+[node name="shade" type="CollisionShape2D" parent="player/cabeca"]
+
+transform/pos = Vector2( 0.683807, -11.089 )
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="esquerda" type="Area2D" parent="player"]
+
+editor/display_folded = true
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -8.23529, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 4
+collision/mask = 4
+
+[node name="shape" type="CollisionShape2D" parent="player/esquerda"]
+
+transform/pos = Vector2( -8.23529, 0 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="direita" type="Area2D" parent="player"]
+
+editor/display_folded = true
+input/pickable = true
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 8.23529, 1.17647 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 4
+collision/mask = 4
+
+[node name="shape" type="CollisionShape2D" parent="player/direita"]
+
+transform/pos = Vector2( 8.23529, 1.17647 )
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+
+transform/pos = Vector2( -1.85043, 0.514397 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 0.7, 0.7 )
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = true
+smoothing/speed = 55.0
+drag_margin/left = 0.0
+drag_margin/top = 0.0
+drag_margin/right = 0.0
+drag_margin/bottom = 0.0
+
+[node name="sprite" type="Sprite" parent="player"]
+
+transform/pos = Vector2( 0.104233, 10.9605 )
+transform/scale = Vector2( 0.7, 0.8 )
+texture = ExtResource( 4 )
+offset = Vector2( -0.130291, -13.7006 )
+vframes = 2
+hframes = 3
+
+[node name="shape" type="CollisionShape2D" parent="player"]
+
+transform/pos = Vector2( 0.0721741, 0.366211 )
+transform/scale = Vector2( 1.33014, 1.47879 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="anim" type="AnimationPlayer" parent="player"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/falling = SubResource( 5 )
+anims/jumping = SubResource( 6 )
+anims/stopped = SubResource( 7 )
+anims/walking = SubResource( 8 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="animFX" type="AnimationPlayer" parent="player"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/caiu = SubResource( 9 )
+anims/pulou = SubResource( 10 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="rayChao" type="RayCast2D" parent="player"]
+
+transform/pos = Vector2( -7.21706, 11.7294 )
+transform/rot = -28.7468
+transform/scale = Vector2( 0.5, 0.5 )
+enabled = true
+cast_to = Vector2( 0, 3 )
+layer_mask = 2
+type_mask = 15
+
+[node name="rayChao1" type="RayCast2D" parent="player"]
+
+transform/pos = Vector2( 7.38799, 11.7498 )
+transform/rot = 26.5877
+transform/scale = Vector2( 0.5, 0.5 )
+enabled = true
+cast_to = Vector2( 0, 3 )
+layer_mask = 2
+type_mask = 15
+
+[node name="rayChao2" type="RayCast2D" parent="player"]
+
+transform/pos = Vector2( -0.600479, 11.9124 )
+transform/rot = 1.27289
+transform/scale = Vector2( 0.5, 0.5 )
+enabled = true
+cast_to = Vector2( 0, 3 )
+layer_mask = 2
+type_mask = 15
+
+[node name="pes" type="Area2D" parent="player"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 11 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.0999146, 12.1573 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 4
+collision/mask = 4
+
+[node name="shape" type="CollisionShape2D" parent="player/pes"]
+
+transform/pos = Vector2( -0.0999146, 12.1573 )
+shape = SubResource( 11 )
+trigger = false
+_update_shape_index = 0
+
+[node name="empurraD" type="RayCast2D" parent="player"]
+
+transform/pos = Vector2( 8.58124, -0.425652 )
+enabled = false
+cast_to = Vector2( 2, 0 )
+layer_mask = 8
+type_mask = 15
+
+[node name="empurraE" type="RayCast2D" parent="player"]
+
+transform/pos = Vector2( -8.54588, -0.425652 )
+enabled = false
+cast_to = Vector2( -2, 0 )
+layer_mask = 8
+type_mask = 15
+
+[node name="TileMap 2" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 16, 16 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray(  )
+
+[node name="paralax" type="ParallaxBackground" parent="."]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll/offset = Vector2( 0, 0 )
+scroll/base_offset = Vector2( 0, 0 )
+scroll/base_scale = Vector2( 1, 1 )
+scroll/limit_begin = Vector2( 0, 0 )
+scroll/limit_end = Vector2( 0, 0 )
+scroll/ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="paralax"]
+
+motion/scale = Vector2( 0.5, 0 )
+motion/offset = Vector2( 0, 0 )
+motion/mirroring = Vector2( 400, 0 )
+
+[node name="bg01" type="Sprite" parent="paralax/ParallaxLayer"]
+
+transform/scale = Vector2( 1.25, 1.5 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 0, 176, 160, 128 )
+
+[node name="bg2" type="Sprite" parent="paralax/ParallaxLayer"]
+
+transform/pos = Vector2( 200, 0 )
+transform/scale = Vector2( 1.25, 1.5 )
+texture = ExtResource( 1 )
+centered = false
+region = true
+region_rect = Rect2( 0, 176, 160, 128 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 1763, 717 )
+input/pickable = true
+shapes/0/shape = SubResource( 15 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 16 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 17 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 18 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/3/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+
+build_mode = 0
+polygon = Vector2Array( -1816, -467, -578, -472, -430, 149, 314, 147, 312, 225, -543, 225, -676, -374, -1988, -378, -1988, -474 )
+shape_range = Vector2( 0, 3 )
+trigger = false
+
+[connection signal="body_enter" from="passagem" to="player" method="_on_passagem_body_enter"]
+
+[connection signal="body_enter" from="player/cabeca" to="player" method="_on_cabeca_body_enter"]
+
+[connection signal="body_enter" from="player/esquerda" to="player" method="_on_esquerda_body_enter"]
+
+[connection signal="body_enter" from="player/direita" to="player" method="_on_direita_body_enter"]
+
+[connection signal="body_enter" from="player/pes" to="player" method="_on_pes_body_enter"]
+
+[connection signal="body_enter" from="Area2D" to="player" method="_on_Area2D_body_enter"]
+
+
