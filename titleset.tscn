@@ -9,7 +9,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 
 custom_solver_bias = 0.0
 points = Vector2Array( -8, -8, 8, -8, 8, -4, -8, -4 )
@@ -24,7 +24,7 @@ extents = Vector2( 8, 8 )
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
-[sub_resource type="ConvexPolygonShape2D" id=6]
+[sub_resource type="ConvexPolygonShape2D" id=5]
 
 custom_solver_bias = 0.0
 points = Vector2Array( 8.0263, -7.97361, 8.01313, -3.97363, -7.98679, -4.02632, -7.97361, -8.0263 )
@@ -121,7 +121,7 @@ region_rect = Rect2( 256, 48, 16, 16 )
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite3"]
 
 input/pickable = false
-shapes/0/shape = SubResource( 5 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -167,7 +167,6 @@ _update_shape_index = 0
 
 [node name="Sprite7" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 16, 16 )
 texture = ExtResource( 1 )
 region = true
@@ -1533,7 +1532,7 @@ region_rect = Rect2( 320, 48, 16, 16 )
 
 transform/rot = 0.188688
 input/pickable = false
-shapes/0/shape = SubResource( 6 )
+shapes/0/shape = SubResource( 5 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 collision/layers = 1

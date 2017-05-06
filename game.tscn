@@ -603,8 +603,6 @@ transform/pos = Vector2( 1648, 722 )
 
 [node name="inimigos" type="Node" parent="."]
 
-editor/display_folded = true
-
 [node name="inimigo01" parent="inimigos" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 34.3085, 88.1416 )
@@ -672,7 +670,6 @@ autoplay = "default"
 
 [node name="bloco" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 488, 104 )
 input/pickable = false
 shapes/0/shape = SubResource( 15 )
@@ -697,6 +694,7 @@ _update_shape_index = 0
 
 [node name="bloco_quebravel" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 204, 24 )
 input/pickable = false
 shapes/0/shape = SubResource( 16 )

@@ -190,19 +190,19 @@ func _on_cabeca_body_enter( body ):
 
 func _on_Area2D_body_enter( body ):
 	print("Fim de jogo!")
-	get_tree().change_scene("game.tscn")
+	get_tree().change_scene("game_screne2.tscn")
 	pass # replace with function body
 
 func _on_direita_body_enter( body ):
 	print("Tocou Direita")
 	#get_node("sprite").hide()
-	get_tree().change_scene("game.tscn")
+	get_tree().change_scene("game_screne2.tscn")
 	pass # replace with function body
 
 func _on_esquerda_body_enter( body ):
 	print("Tocou Esquerda")
 	#get_node("sprite").hide()
-	get_tree().change_scene("game.tscn")
+	get_tree().change_scene("game_screne2.tscn")
 	pass # replace with function body
 
 func _on_trampulin_body_enter( body ):
@@ -214,3 +214,11 @@ func _on_passagem_body_enter( body ):
 	body.has_method("cair")
 	body.cair()
 	pass # replace with function body
+
+
+func _on_barreira_body_enter( body ):
+	get_node("Camera2D").clear_current()
+	get_node("camera_02").make_current()
+	get_node("anim_cam").play("camera")
+	pass # replace with function body
+
