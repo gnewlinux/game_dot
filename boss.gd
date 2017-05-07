@@ -3,7 +3,7 @@ extends KinematicBody2D
 var pre_tiro = preload("res://tiro.tscn")
 var pre_tiro_e = preload("res://tiro_e.tscn")
 
-export(int, 1, 10) var vida = 1
+export(int, 1, 30) var vida = 1
 var vivo = true
 var vel = 100
 var intervalo = 1
@@ -22,7 +22,7 @@ func _process(delta):
 	#print (pos)
 	
 	if ultimo_toque > 0:
-		print (ultimo_toque)
+		#print (ultimo_toque)
 		ultimo_toque -= delta
 	if ultimo_toque <= 0.1:
 		
@@ -48,7 +48,7 @@ func dano(qtde):
 		ultimo_toque = intervalo
 		#print(ultimo_toque)
 		get_node("sprite").set_opacity(0)
-		#print (vida)
+		print (vida)
 		
 	
 	if vida <= 0:

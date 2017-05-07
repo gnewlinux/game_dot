@@ -722,7 +722,7 @@ collision/layers = 4
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 6 )
-vida = 10
+vida = 50
 
 [node name="sprite" type="Sprite" parent="boss"]
 
