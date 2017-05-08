@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 var vel = 50
 var rot = 180
@@ -18,3 +18,17 @@ func _process(delta):
 		pass
 	
 	pass
+
+
+func _on_tiro_body_enter( body ):
+	#print(body.get_groups())
+	if body.is_in_group(game.GRUPO_INIMIGOS):
+		#print("inimigo")
+		body.get_node("die").play("dano")
+		#body.yield(get_node("die"), "finished")
+		if body.has_method("dano"):
+			body.dano(1)
+
+	queue_free()
+
+	pass # replace with function body

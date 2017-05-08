@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=1]
+[gd_scene load_steps=33 format=1]
 
 [ext_resource path="res://titleset2.tres" type="TileSet" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
@@ -198,32 +198,27 @@ extents = Vector2( 8, 7 )
 custom_solver_bias = 0.0
 extents = Vector2( 8, 8 )
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="ConvexPolygonShape2D" id=17]
 
 custom_solver_bias = 0.0
-extents = Vector2( 1, 19 )
+points = Vector2Array( -609.456, -444.487, -1845.56, -454.557, -1840.53, -509.942, -518.825, -509.942 )
 
 [sub_resource type="ConvexPolygonShape2D" id=18]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -1988, -378, -1988, -474, -1816, -467, -676, -374 )
+points = Vector2Array( -609.456, -444.487, -518.825, -509.942, -337.563, 119.44, -392.948, 220.142 )
 
 [sub_resource type="ConvexPolygonShape2D" id=19]
 
 custom_solver_bias = 0.0
-points = Vector2Array( -676, -374, -1816, -467, -578, -472 )
+points = Vector2Array( 231.399, 215.107, -392.948, 220.142, -337.563, 119.44, 228.882, 116.923 )
 
-[sub_resource type="ConvexPolygonShape2D" id=20]
-
-custom_solver_bias = 0.0
-points = Vector2Array( -676, -374, -578, -472, -430, 149, -543, 225 )
-
-[sub_resource type="ConvexPolygonShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=20]
 
 custom_solver_bias = 0.0
-points = Vector2Array( 312, 225, -543, 225, -430, 149, 314, 147 )
+extents = Vector2( 1, 19 )
 
-[sub_resource type="RectangleShape2D" id=22]
+[sub_resource type="RectangleShape2D" id=21]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8, 2 )
@@ -603,6 +598,8 @@ transform/pos = Vector2( 1648, 722 )
 
 [node name="inimigos" type="Node" parent="."]
 
+editor/display_folded = true
+
 [node name="inimigo01" parent="inimigos" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 34.3085, 88.1416 )
@@ -670,6 +667,7 @@ autoplay = "default"
 
 [node name="bloco" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 488, 104 )
 input/pickable = false
 shapes/0/shape = SubResource( 15 )
@@ -748,12 +746,36 @@ shape = SubResource( 16 )
 trigger = false
 _update_shape_index = 0
 
-[node name="fim_jogo" type="Area2D" parent="."]
+[node name="fim" type="Area2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 1763, 717 )
 input/pickable = true
 shapes/0/shape = SubResource( 17 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 18 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 19 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="fim"]
+
+build_mode = 0
+polygon = Vector2Array( -1840.53, -509.942, -518.825, -509.942, -337.563, 119.44, 228.882, 116.923, 231.399, 215.107, -392.948, 220.142, -609.456, -444.487, -1845.56, -454.557 )
+shape_range = Vector2( 0, 2 )
+trigger = false
+
+[node name="fim_jogo" type="Area2D" parent="."]
+
+transform/pos = Vector2( 1763, 717 )
+input/pickable = true
+shapes/0/shape = SubResource( 20 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, -2, 1 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -770,45 +792,16 @@ texture = ExtResource( 10 )
 [node name="shape" type="CollisionShape2D" parent="fim_jogo"]
 
 transform/pos = Vector2( -2, 1 )
-shape = SubResource( 17 )
+shape = SubResource( 20 )
 trigger = false
 _update_shape_index = 0
-
-[node name="Area2D" type="Area2D" parent="."]
-
-editor/display_folded = true
-transform/pos = Vector2( 1763, 717 )
-input/pickable = true
-shapes/0/shape = SubResource( 18 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-shapes/1/shape = SubResource( 19 )
-shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/1/trigger = false
-shapes/2/shape = SubResource( 20 )
-shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/2/trigger = false
-shapes/3/shape = SubResource( 21 )
-shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/3/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-
-build_mode = 0
-polygon = Vector2Array( -1816, -467, -578, -472, -430, 149, 314, 147, 312, 225, -543, 225, -676, -374, -1988, -378, -1988, -474 )
-shape_range = Vector2( 0, 3 )
-trigger = false
 
 [node name="trampulin" type="Area2D" parent="."]
 
 editor/display_folded = true
 transform/pos = Vector2( 160, 64 )
 input/pickable = true
-shapes/0/shape = SubResource( 22 )
+shapes/0/shape = SubResource( 21 )
 shapes/0/transform = Matrix32( -1, 1.50996e-07, -1.50996e-07, -1, 0, -6 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -826,7 +819,7 @@ region_rect = Rect2( 320, 48, 16, 16 )
 
 transform/pos = Vector2( 0, -6 )
 transform/rot = -180.0
-shape = SubResource( 22 )
+shape = SubResource( 21 )
 trigger = false
 _update_shape_index = 0
 
@@ -861,9 +854,9 @@ shadow/item_mask = 1
 
 [connection signal="body_enter" from="player/pes" to="player" method="_on_pes_body_enter"]
 
-[connection signal="body_enter" from="fim_jogo" to="player" method="_on_Area2D_body_enter"]
+[connection signal="body_enter" from="fim" to="player" method="_on_fim_body_enter"]
 
-[connection signal="body_enter" from="Area2D" to="player" method="_on_Area2D_body_enter"]
+[connection signal="body_enter" from="fim_jogo" to="player" method="_on_Area2D_body_enter"]
 
 [connection signal="body_enter" from="trampulin" to="player" method="_on_trampulin_body_enter"]
 

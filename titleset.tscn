@@ -86,7 +86,6 @@ _update_shape_index = 0
 
 [node name="Sprite2" type="Sprite" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 32, 0 )
 texture = ExtResource( 1 )
 region = true
@@ -167,6 +166,7 @@ _update_shape_index = 0
 
 [node name="Sprite7" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 16, 16 )
 texture = ExtResource( 1 )
 region = true
@@ -193,6 +193,7 @@ _update_shape_index = 0
 
 [node name="Sprite10" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 32, 16 )
 texture = ExtResource( 1 )
 region = true
@@ -1219,6 +1220,7 @@ _update_shape_index = 0
 
 [node name="Sprite52" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 240, 64 )
 texture = ExtResource( 2 )
 region = true
@@ -1245,6 +1247,7 @@ _update_shape_index = 0
 
 [node name="Sprite53" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 192, 48 )
 texture = ExtResource( 2 )
 region = true
@@ -1271,6 +1274,7 @@ _update_shape_index = 0
 
 [node name="Sprite54" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 208, 48 )
 texture = ExtResource( 2 )
 region = true
@@ -1297,6 +1301,7 @@ _update_shape_index = 0
 
 [node name="Sprite55" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 224, 48 )
 texture = ExtResource( 2 )
 region = true
@@ -1323,6 +1328,7 @@ _update_shape_index = 0
 
 [node name="Sprite56" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 240, 48 )
 texture = ExtResource( 2 )
 region = true
@@ -1349,6 +1355,7 @@ _update_shape_index = 0
 
 [node name="Sprite57" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 192, 32 )
 texture = ExtResource( 2 )
 region = true
@@ -1375,6 +1382,7 @@ _update_shape_index = 0
 
 [node name="Sprite58" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 208, 32 )
 texture = ExtResource( 2 )
 region = true
@@ -1401,6 +1409,7 @@ _update_shape_index = 0
 
 [node name="Sprite59" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 224, 32 )
 texture = ExtResource( 2 )
 region = true
@@ -1427,6 +1436,7 @@ _update_shape_index = 0
 
 [node name="Sprite60" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 240, 32 )
 texture = ExtResource( 2 )
 region = true
@@ -1523,6 +1533,7 @@ region_rect = Rect2( 48, 1408, 16, 16 )
 
 [node name="Sprite 4" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 64, 0 )
 texture = ExtResource( 1 )
 region = true

@@ -32,6 +32,11 @@ var animacao = ""
 var estava_chao = false
 var empurra_forca = Vector2(30,0)
 
+var vida = 3
+var vivo = true
+var intervalo = 1
+var ultimo_toque = 0
+
 func _fixed_process(delta):
 	randomize()
 	# Create forces
@@ -121,7 +126,7 @@ func _fixed_process(delta):
 	on_air_time += delta
 	prev_jump_pressed = jump
 
-	var chao = get_node("rayChao").is_colliding() || get_node("rayChao1").is_colliding() || get_node("rayChao2").is_colliding()
+	var chao = get_node("rayChao2").is_colliding()
 
 	if chao && !estava_chao:
 		get_node("animFX").play("caiu")
@@ -178,11 +183,12 @@ func pula_alto():
 	jumping = true
 
 func _ready():
+	add_to_group(game.GRUPO_INIMIGOS)
 	set_fixed_process(true)
 
 func _on_pes_body_enter( body ):
 	pula()
-	body.dano(3)
+	body.dano(1)
 
 func _on_cabeca_body_enter( body ):
 	if body.has_method("destroi"):
@@ -220,5 +226,29 @@ func _on_barreira_body_enter( body ):
 	get_node("Camera2D").clear_current()
 	get_node("camera_02").make_current()
 	get_node("anim_cam").play("camera")
+	get_tree().get_root().get_node("main").get_node("boss").inicio()
 	pass # replace with function body
 
+
+func _on_corpo_body_enter( body ):
+	get_node("die").play("dano")
+	dano(1)
+	pass # replace with function body
+
+var teste = 10
+
+func dano(valor):
+	vida -= valor
+	print(vida)
+	if vida <= 0:
+		#get_node("corpo").queue_free()
+		get_node("die").play("die")
+		yield(get_node("die"), "finished")
+		get_tree().change_scene("game_screne2.tscn")
+	
+	pass
+
+
+func _on_fim_body_enter( body ):
+	get_tree().change_scene("game.tscn")
+	pass # replace with function body

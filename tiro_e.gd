@@ -18,3 +18,18 @@ func _process(delta):
 		pass
 	
 	pass
+
+
+
+
+func _on_tiro_e_body_enter( body ):
+	print(body.get_groups())
+	if body.is_in_group(game.GRUPO_INIMIGOS):
+		print("inimigo")
+		body.get_node("die").play("dano")
+		if body.has_method("dano"):
+			body.dano(1)
+
+	queue_free()
+
+	pass # replace with function body
